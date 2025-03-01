@@ -1,12 +1,14 @@
     #include<iostream>
     using namespace std;
-     
+
+// node is not built-in => it will be user defined
+
      class node{
          public:
          int data;
-         node* next;
+         node* next;     //this pointer points the next node =>type is node*
 
-         node(int val){
+         node(int val){    //constructor
             data=val;
             next=NULL;
          }
@@ -18,16 +20,16 @@
         head=n;
     }
     
-    void insertAtTail(node* &head,int val){
+    void insertAtTail(node* &head,int val){     //here head is by reference and not by value
         
-        node*n=new node(val);
+        node*n=new node(val);      //new node n has data field as val and next field as NULL
         if(head==NULL){
             head=n;
             return;
         }
 
         node*temp=head;
-        while(temp->next!=NULL){
+        while(temp->next!=NULL){    //till temp ka next != NULL
             temp=temp->next;
         }
         temp->next=n;
